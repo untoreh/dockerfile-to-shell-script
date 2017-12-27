@@ -23,7 +23,7 @@ sed -i "s/^RUN\s//gI" $OUTPUT
 sed -i "s/$HOME_DIRECTORY/~/g" $OUTPUT
 
 # Convert ENVs into EXPORTs
-sed -r 's/^ENV\s([A-Z]*)\s*([a-z]*)/export \1=\2/gI' -i $OUTPUT
+sed -r 's/^ENV\s([^ ]*)\s*([a-z]*)/export \1=\2/gI' -i $OUTPUT
 
 # Get rid of EXPOSE todo: open up ports based on these?
 sed -i "s/^EXPOSE\s/# EXPOSE /gI" $OUTPUT
