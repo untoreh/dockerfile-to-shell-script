@@ -29,7 +29,10 @@ sed -r 's/^ENV\s([^ ]*)\s*([a-z]*)/export \1=\2/gI' -i $OUTPUT
 sed -i "s/^EXPOSE\s/# EXPOSE /gI" $OUTPUT
 
 # Convert ADDs into cp
-sed -i "s/^ADD\s/cp /gI" $OUTPUT
+sed -i "s/^ADD\s/cp -R /gI" $OUTPUT
+
+# Convert COPYs into cp
+sed -i "s/^COPY\s/cp -R /gI" $OUTPUT
 
 # Convert WORKDIR into cd
 sed -i "s/^WORKDIR\s/cd /gI" $OUTPUT
