@@ -16,8 +16,9 @@ sed -i "s/^FROM\s/# FROM /gI" $OUTPUT
 sed -i "s/^MAINTAINER\s/# MAINTAINER /gI" $OUTPUT
 sed -i "s/^VOLUME\s/# VOLUME /gI" $OUTPUT
 
-# Get rid of RUNs
+# Get rid of RUNs and FROMs
 sed -i "s/^RUN\s//gI" $OUTPUT
+sed -i "s/^FROM\s//gI" $OUTPUT
 
 # Convert home directory into squiggles (tildes)
 sed -i "s/$HOME_DIRECTORY/~/g" $OUTPUT
